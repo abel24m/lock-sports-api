@@ -10,8 +10,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from typing import List
 
-from api.web_scrape.data.covers_baseball_match_data import CoversBaseballMatchData
-from api.web_scrape.support import globals
+from web_scrape.data.covers_baseball_match_data import CoversBaseballMatchData
+from web_scrape.support import globals
 
 
 class CoversScraper:

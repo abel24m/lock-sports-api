@@ -1,9 +1,9 @@
 from datetime import datetime, timedelta
-from api.web_scrape.support.save_data import save_mlb_data
+from web_scrape.support.save_data import save_mlb_data
 import threading
 
-from api.web_scrape.analyst.analyst import Analyst
-from api.web_scrape.web_scrapers.covers_scraper import CoversScraper
+from web_scrape.analyst.analyst import Analyst
+from web_scrape.web_scrapers.covers_scraper import CoversScraper
 from support.csv_writer import CSVWriter
 from web_scrapers.bovada_scraper import BovadaWebScraper
 

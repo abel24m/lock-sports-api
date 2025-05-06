@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 
-from api.web_scrape.data.covers_baseball_match_data import CoversBaseballMatchData
+from web_scrape.data.covers_baseball_match_data import CoversBaseballMatchData
 
 
 def save_mlb_data(matches : [CoversBaseballMatchData]):

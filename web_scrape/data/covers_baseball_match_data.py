@@ -1,7 +1,7 @@
 from time import sleep
 
-from api.web_scrape.data.covers_baseball_team_data import CoversBaseballTeamData
-from api.web_scrape.support import globals
+from web_scrape.data.covers_baseball_team_data import CoversBaseballTeamData
+from web_scrape.support import globals
 
 
 class CoversBaseballMatchData:
