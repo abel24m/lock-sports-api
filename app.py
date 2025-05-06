@@ -10,8 +10,6 @@ def get_current_time():
         data = json.load(file)
     return data
 
-@app.route('/nba')
+@app.route('/test')
 def get_nba_games():
-    with open("test.txt", "r") as f:
-        content = f.readline()
-    return {'data': content}
+    return "Testing this endpoint"
