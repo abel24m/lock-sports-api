@@ -1,5 +1,5 @@
-from web_scrape.data.bovada_data import BovadaData
-from web_scrape.web_scrapers.bovada_scraper import BovadaWebScraper
+from ..data.bovada_data import BovadaData
+from ..web_scrapers.bovada_scraper import BovadaWebScraper
 
 
 class CSVWriter:

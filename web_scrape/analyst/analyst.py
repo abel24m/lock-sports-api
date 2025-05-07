@@ -1,5 +1,5 @@
-from web_scrape.data.covers_baseball_match_data import CoversBaseballMatchData
-from web_scrape.data.covers_baseball_team_data import CoversBaseballTeamData
+from ..data.covers_baseball_match_data import CoversBaseballMatchData
+from ..data.covers_baseball_team_data import CoversBaseballTeamData
 
 
 class Analyst:

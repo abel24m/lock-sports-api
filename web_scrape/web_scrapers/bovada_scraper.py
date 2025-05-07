@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from typing import List
 
-from web_scrape.data.bovada_data import BovadaData
+from ..data.bovada_data import BovadaData
 
 
 class BovadaWebScraper:

@@ -1,13 +1,33 @@
 import json
+from datetime import datetime, timedelta
 
+import schedule
 from flask import Flask
+from pathlib import Path
+
+from .web_scrape.web_scraper import initiate_web_scrape
 
 app = Flask(__name__)
 
+today_date = datetime.now().strftime("%m-%d-%Y")
+yesterday_date = (datetime.now() - timedelta(days=1)).strftime("%m-%d-%Y")
+
+
+
+# Every Monday task() is called at 20:00
+schedule.every().day.at('10:00').do(initiate_web_scrape)
+
 @app.route('/mlb_data')
 def get_current_time():
-    with open ("web_scrape/data_storage/covers_mlb_data_05-06-2025.json") as file:
-        data = json.load(file)
+    schedule.run_pending()
+    today_path = f"web_scrape/data_storage/covers_mlb_data_{today_date}.json"
+    yesterday_path = f"web_scrape/data_storage/covers_mlb_data_{yesterday_date}.json"
+    file = Path(today_path)
+    if file.is_file():
+        opened_file = open(today_path)
+    else :
+        opened_file = open(yesterday_path)
+    data = json.load(opened_file)
     return data
 
 @app.route('/test')

@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta
-from web_scrape.support.save_data import save_mlb_data
-import threading
+from .support.save_data import save_mlb_data
+# import threading
 
-from web_scrape.analyst.analyst import Analyst
-from web_scrape.web_scrapers.covers_scraper import CoversScraper
-from support.csv_writer import CSVWriter
-from web_scrapers.bovada_scraper import BovadaWebScraper
+from .analyst.analyst import Analyst
+from .web_scrapers.covers_scraper import CoversScraper
+# from support.csv_writer import CSVWriter
+from .web_scrapers.bovada_scraper import BovadaWebScraper
 
 today_date = datetime.now().strftime("%m-%d-%Y")
 yesterday_date = (datetime.now() - timedelta(days=1)).strftime("%m-%d-%Y")
@@ -29,6 +29,3 @@ def initiate_web_scrape():
 # web_scrape()
 
     # schedule.every().day.at("10:30").do(web_scrape)
-
-if __name__ == "__main__":
-    initiate_web_scrape()
