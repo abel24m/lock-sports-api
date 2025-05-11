@@ -1,16 +1,15 @@
 from datetime import datetime, timedelta
-from .support.save_data import save_mlb_data
-# import threading
+import threading
 
-from .analyst.analyst import Analyst
-from .web_scrapers.covers_scraper import CoversScraper
-# from support.csv_writer import CSVWriter
-from .web_scrapers.bovada_scraper import BovadaWebScraper
+from web_scrape.analyst.analyst import Analyst
+from web_scrape.support.save_data import save_mlb_data
+from web_scrape.web_scrapers.covers_scraper import CoversScraper
+from web_scrape.web_scrapers.bovada_scraper import BovadaWebScraper
 
 today_date = datetime.now().strftime("%m-%d-%Y")
 yesterday_date = (datetime.now() - timedelta(days=1)).strftime("%m-%d-%Y")
 
-today_file_path = f"./web_scrape/output/bovada_scrape_{today_date}.csv"
+# today_file_path = f"./web_scrape/output/bovada_scrape_{today_date}.csv"
 # yesterday_file_path = f"/text_files/bovada_scrape_{yesterday_date}.csv"
 
 leagues_to_scrape = ["MLB"]
@@ -29,3 +28,6 @@ def initiate_web_scrape():
 # web_scrape()
 
     # schedule.every().day.at("10:30").do(web_scrape)
+
+if __name__ == "__main__":
+    initiate_web_scrape()

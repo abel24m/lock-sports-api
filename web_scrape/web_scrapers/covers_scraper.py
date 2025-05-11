@@ -234,25 +234,30 @@ class CoversScraper:
     def _scrape_pitcher(pitcher_section : BeautifulSoup, match : CoversBaseballMatchData, match_side: str):
         #Scrape Betting Records that are above the table of last 5 games
         betting_records = pitcher_section.find_all("div", {"class": "record-value"})
-        pitcher_win_loss = betting_records[0].text
-        pitcher_era = betting_records[1].text
-        pitcher_ip = betting_records[2].text
+        try:
+            pitcher_win_loss = betting_records[0].text
+            pitcher_era = betting_records[1].text
+            pitcher_ip = betting_records[2].text
 
-        #Scrape the averages of the last 5
-        last_five_avg_table = pitcher_section.find("table", {"class" : "starter-table"})
-        table_rows = last_five_avg_table.find_all("tr")
-        if len(table_rows) <= 2:
-            return
-        last_row = table_rows[len(table_rows)-1]
-        fields_in_row = last_row.find_all("td")
-        pitcher_hits = fields_in_row[4].text
-        pitcher_runs = fields_in_row[5].text
-        pitcher_er = fields_in_row[6].text
-        pitcher_so = fields_in_row[7].text
-        pitcher_bb = fields_in_row[8].text
-        pitcher_hr = fields_in_row[9].text
-        pitcher_pit = fields_in_row[10].text
-        pitcher_pip = fields_in_row[11].text
+            #Scrape the averages of the last 5
+            last_five_avg_table = pitcher_section.find("table", {"class" : "starter-table"})
+            table_rows = last_five_avg_table.find_all("tr")
+            if len(table_rows) <= 2:
+                return
+            last_row = table_rows[len(table_rows)-1]
+            fields_in_row = last_row.find_all("td")
+            pitcher_hits = fields_in_row[4].text
+            pitcher_runs = fields_in_row[5].text
+            pitcher_er = fields_in_row[6].text
+            pitcher_so = fields_in_row[7].text
+            pitcher_bb = fields_in_row[8].text
+            pitcher_hr = fields_in_row[9].text
+            pitcher_pit = fields_in_row[10].text
+            pitcher_pip = fields_in_row[11].text
+        except IndexError:
+            print("index error")
+            result = {}
+            return result
         result = {
             globals.PITCHER_WIN_LOSS : pitcher_win_loss,
             globals.PITCHER_ERA : pitcher_era,

@@ -58,11 +58,11 @@ class Analyst:
         hitting_code = 0
 
         try:
-            hitting_code += float(team_data.runs_avg) * 1.75
+            hitting_code += float(team_data.runs_avg) * 2.2
             hitting_batting_average = float(team_data.batting_avg) * 2
-            hitting_code += float(team_data.hits_avg) * 1.25
-            hitting_code += float(team_data.hr_avg) * 1.75
-            hitting_code += float(team_data.walks_avg) * 1.80
+            hitting_code += float(team_data.hits_avg) * 1.50
+            hitting_code += float(team_data.hr_avg) * 2.0
+            hitting_code += float(team_data.walks_avg) * 1.20
             hitting_results = {
                 "Hitting Batting Avg" : hitting_batting_average,
                 "Hitting Performance" : hitting_code
@@ -78,11 +78,11 @@ class Analyst:
         pitcher_code_one = 0
         pitcher_code_one += float(team_data.pitcher_lf_era) * 2
         pitcher_code_one += float(team_data.pitcher_lf_run) * 1.5
-        pitcher_code_one += float(team_data.pitcher_lf_hits) * 1.5
-        pitcher_code_one += float(team_data.pitcher_lf_hr) * 2
+        pitcher_code_one += float(team_data.pitcher_lf_hits) * 1.8
+        pitcher_code_one += float(team_data.pitcher_lf_hr) * 1.2
         pitcher_code_one += float(team_data.pitcher_lf_bb) * 1.25
 
-        pitcher_code_two = float(team_data.pitcher_lf_so) * 2
+        pitcher_code_two = float(team_data.pitcher_lf_so)
 
         pitcher_code_three = float(team_data.pitcher_lf_pit)
         pitcher_code_four = float(team_data.pitcher_lf_pip)

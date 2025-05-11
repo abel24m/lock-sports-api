@@ -7,7 +7,7 @@ from ..data.covers_baseball_match_data import CoversBaseballMatchData
 def save_mlb_data(matches : [CoversBaseballMatchData]):
     today_date = datetime.now().strftime("%m-%d-%Y")
     filename = f"covers_mlb_data_{today_date}.json"
-    file_path = f"./web_scrape/data_storage/{filename}"
+    file_path = f"./data_storage/{filename}"
     with open(file_path, "a") as file :
         all_games = []
         match : CoversBaseballMatchData
